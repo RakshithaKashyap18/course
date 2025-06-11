@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Study Abroad Course Data</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="full-page">
+    <div class="content-box">
+      <h1>🔍 Search Study Abroad Course Data</h1>
+
+      <form id="searchForm" class="form">
+        <div class="form-group">
+          <label for="homeCourseTitle">Home Course Title</label>
+          <input type="text" id="homeCourseTitle" name="homeCourseTitle" placeholder="e.g. homeCourseTitle">
+        </div>
+
+        <div class="form-group">
+          <label for="homeCourseCode">Home Course Code</label>
+          <input type="text" id="homeCourseCode" name="homeCourseCode" placeholder="e.g. homeCourseCode">
+        </div>
+
+        <button type="submit" class="btn">Search</button>
+      </form>
+
+      <div id="results" class="results-table"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

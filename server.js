@@ -7,13 +7,16 @@ const cors = require('cors');
 const fs = require('fs');
 
 const app = express();
+const port = process.env.PORT || 3000; // ✅ Dynamic port for Railway
+
 app.use(cors());
-app.use(express.static('public'));
+app.use(express.static('public')); // ✅ Serves static files like index.html, script.js, etc.
 
 let courseData = [];
 
 const upload = multer({ dest: 'uploads/' });
 
+// ✅ Endpoint to handle Excel uploads
 app.post('/upload', upload.single('file'), (req, res) => {
   if (!req.file) return res.status(400).json({ message: 'No file uploaded.' });
 
@@ -32,6 +35,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
   }
 });
 
+// ✅ Endpoint for searching course data
 app.get('/search', (req, res) => {
   const { homeCourseTitle = '', homeCourseCode = '' } = req.query;
 
@@ -48,6 +52,7 @@ app.get('/search', (req, res) => {
   res.json(result);
 });
 
-app.listen(3000, () => {
-  console.log('Server running on http://localhost:3000');
+// ✅ Start the server
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
 });
